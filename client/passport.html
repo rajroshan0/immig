@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visa Holder Enquiry</title>
+    <link rel="stylesheet" href="secondPage.css">
+    <style>
+        
+    </style>
+    <script>
+        function goToPage(select) {
+            var value = select.value;
+            if (value) {
+                window.location.href = value;
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <img src="logo/logo.png" alt="Australian Government Department of Home Affairs">
+    <h1>VEVO for Visa Holders</h1>
+</div>
+
+<div class="container">
+    <h3>Visa holder enquiry</h3>
+    <p>Please complete the following details to view your visa entitlements.<br> Fields marked with <span style="color:red">*</span> must be completed.</p>
+    <div class="form-group">
+        <label for="documentType">Document type <span style="color:red">*</span></label>
+        <select id="document-type" name="document-type" onchange="goToPage(this)">
+            <option value="">passport</option>
+            <option value="dfta.html">DFTA</option>
+            <option value="immicard.html">ImmiCard</option>
+            <option value="passport.html">Passport</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="referenceType">Reference type <span style="color:red">*</span></label>
+        <select id="referenceType" name="referenceType">
+            <option value="">Please choose a reference type</option>
+            <option value="">Transaction Reference Number (TRN)</option>
+            <option value="">Visa Evidence Number</option>
+            <option value="">Visa Grant Number</option>
+            <option value="">Passport</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="dob">Date of birth <span style="color:red">*</span></label>
+        <input type="date" id="dob" name="dob">
+    </div>
+    <div class="form-group">
+        <label for="documentNumber">Document number <span style="color:red">*</span></label>
+        <input type="number" id="documentNumber" name="documentNumber">
+    </div>
+    <div class="form-group">
+        <label for="country">Country of document <span style="color:red">*</span></label>
+        <select id="countries">
+            <script>
+                const countries = [
+                    "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", 
+                    "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", 
+                    "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", 
+                    "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", 
+                    "Chile", "China", "Colombia", "Comoros", "Congo, Democratic Republic of the", "Congo, Republic of the", 
+                    "Costa Rica", "Côte d'Ivoire", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", 
+                    "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", 
+                    "Eswatini", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", 
+                    "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", 
+                    "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", 
+                    "Kazakhstan", "Kenya", "Kiribati", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", 
+                    "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", 
+                    "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", 
+                    "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", 
+                    "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "North Macedonia", "Norway", "Oman", "Pakistan", 
+                    "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", 
+                    "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", 
+                    "Samoa", "San Marino", "São Tomé and Príncipe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", 
+                    "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Korea", 
+                    "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria", "Taiwan", 
+                    "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", 
+                    "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", 
+                    "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
+                ];
+        
+                const select = document.getElementById('countries');
+                countries.forEach(country => {
+                    const option = document.createElement('option');
+                    option.value = country;
+                    option.text = country;
+                    select.add(option);
+                });
+            </script>
+        </select>
+    </div>
+    <div class="termscond">
+        <a href="terms.html" class="terms-link">Read the terms and conditions</a>
+        <label class="checkbox-label">
+            <input type="checkbox" name="terms" id="terms"> I agree to the terms and conditions
+        </label>
+    </div>
+    <div class="btn-group">
+        <button type="submit" disabled id="submitBtn" onclick="redirectToSubmitPage()">Submit</button>
+        <button type="reset">Reset</button>
+    </div>
+</div>
+
+<div class="footer">
+    © rajroshan
+</div>
+
+<script>
+    const termsCheckbox = document.getElementById('terms');
+    const submitBtn = document.getElementById('submitBtn');
+
+    termsCheckbox.addEventListener('change', function() {
+        submitBtn.disabled = !this.checked;
+    });
+
+    function redirectToSubmitPage() {
+        window.location.href = '/submit/submit.html';
+    }
+</script>
+
+</body>
+</html>

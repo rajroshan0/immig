@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+<title>VEVO for Visa Holders</title>
+ 
+<style>
+
+</style>
+<script>
+    function goToPage(select) {
+        var value = select.value;
+        if (value) {
+            window.location.href = value;
+        }
+    }
+</script>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <img src="logo/logo.png" alt="Australian Government Department of Home Affairs">
+  </div>
+  <div style="flex-grow: 1;">
+    <h1>VEVO for Visa Holders</h1>
+  </div>
+  <div>
+    <a href="passport.html">Help</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="main-content"> 
+    <div class="visa">
+       <h2>Visa holder enquiry</h2>
+    </div>
+    
+    <p>Please complete the following details to view your visa entitlements.<br>Fields marked <span style="color: red;">*</span> must be completed.</p>
+    
+    <form>
+      <label for="document-type">Document type <span style="color: red;">*</span></label>
+      <!-- <select id="document-type" name="document-type">
+        <a href="passport.html"></a> <option value="">DFTA</option></a>
+        <option value="">ImmiCard</option>
+        <option value="">Passport</option>
+        <a href="passport.html"><option value="">Passport</option></a>
+            
+        <!-- Add options here -->
+      <!-- </select> --> 
+      <select id="document-type" name="document-type" onchange="goToPage(this)">
+        <option value="">Select Document</option>
+        <option value="dfta.html">DFTA</option>
+        <option value="immicard.html">ImmiCard</option>
+        <option value="passport.html">Passport</option>
+    </select>
+  </form>
+      <div class="buttons">
+        <button type="reset">Clear</button>
+        <button type="submit">Submit</button>
+      </div>
+    
+  </div>
+</div>
+
+<div class="footer">
+  <a href="#">Accessibility</a> |
+  <a href="#">Online Security</a> |
+  <a href="#">Privacy</a> |
+  <a href="#">Copyright & Disclaimer</a> |
+  <a href="#">Change Password</a>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
