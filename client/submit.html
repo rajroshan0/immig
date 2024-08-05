@@ -3,9 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>redirectToSubmitPage</title>
+    <title>Form Submission</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e0f7fa;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            padding: 40px 60px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+        }
+        .message {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #00796b;
+        }
+        .details {
+            font-size: 1.2em;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
-    <p>The system is currently unavailable.</p>
+    <div class="container">
+        <div class="message">Your form has been submitted</div>
+        <div class="details">Your Visa has been approved. PDF will be sent back to you shortly.</div>
+    </div>
 </body>
 </html>
